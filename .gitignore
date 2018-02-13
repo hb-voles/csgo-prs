@@ -30,3 +30,23 @@
 *.exe
 *.out
 *.app
+
+# added by celestian
+*~
+*.in
+Makefile
+README
+aclocal.m4
+autom4te.cache/
+build-aux/
+config.h
+config.log
+config.status
+configure
+csgoprs
+*.dem
+*.dem.info
+nbproject/
+*.deps/
+*.dirstamp
+stamp-h1
