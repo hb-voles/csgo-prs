@@ -1,0 +1,37 @@
+2018-02-13  celestian <petr.celestian@gmail.com>
+
+	* Makefile.am, configure.ac, src/main.cc: Add initial code with
+	autotools label: architecture
+
+2018-02-13  celestian <petr.celestian@gmail.com>
+
+	* contrib/bashrc_csgo_prs: Add contrib/bashrc_csgo_prs label: architecture There are some bash utils to build project in <arch> directory.
+
+2018-02-13  celestian <petr.celestian@gmail.com>
+
+	* AUTHORS, COPYING, INSTALL, NEWS: Add project administrative files label: architecture
+
+2018-02-13  celestian <petr.celestian@gmail.com>
+
+	* .clang-format, clang-format.sh: Add clang-format label: architecture For automatic format run ./clang-format.sh
+
+2018-02-13  celestian <petr.celestian@gmail.com>
+
+	* bootstrap.sh: Add bootstrap.sh label: architecture For setup build environment run ./bootstrap
+
+2018-02-13  celestian <petr.celestian@gmail.com>
+
+	* .gitignore: Add .gitignore label: architecture
+
+2018-02-13  celestian <petr.celestian@gmail.com>
+
+	* .git-commit-template: Add .git-commit-template label: architecture
+
+2018-02-10  celestian <petr.celestian@gmail.com>
+
+	* README.md: Create README.md
+
+2018-02-10  celestian <petr.celestian@gmail.com>
+
+	* Initial commit
+
