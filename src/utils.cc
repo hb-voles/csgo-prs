@@ -80,11 +80,9 @@ std::string get_file_content(std::string file_name)
         std::string data = read_stream_into_container(fin);
         fin.close();
         return data;
-    }
-    catch (std::ios_base::failure err) {
+    } catch (std::ios_base::failure err) {
         fin.close();
-        throw std::ios_base::failure {
-            file_name + std::string(": ") + err.what()
-        };
+        throw std::ios_base::failure{ file_name + std::string(": ")
+                                      + err.what() };
     }
 }
