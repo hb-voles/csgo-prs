@@ -51,15 +51,15 @@ Container read_stream_into_container(std::basic_istream<CharT, Traits> &in,
 
     auto const start_pos = in.tellg();
     if (std::streamsize(-1) == start_pos)
-        throw std::ios_base::failure{ "error" };
+        throw std::ios_base::failure{ "unable to open the file" };
 
     if (!in.ignore(std::numeric_limits<std::streamsize>::max()))
-        throw std::ios_base::failure{ "error" };
+        throw std::ios_base::failure{ "file too big" };
 
     auto const char_count = in.gcount();
 
     if (!in.seekg(start_pos))
-        throw std::ios_base::failure{ "error" };
+        throw std::ios_base::failure{ "error reading the file" };
 
     auto container = Container(std::move(alloc));
     container.resize(char_count);
@@ -67,7 +67,7 @@ Container read_stream_into_container(std::basic_istream<CharT, Traits> &in,
     if (0 != container.size()) {
         if (!in.read(reinterpret_cast<CharT *>(&container[0]),
                      container.size()))
-            throw std::ios_base::failure{ "error" };
+            throw std::ios_base::failure{ "error reading the file" };
     }
 
     return container;
@@ -76,8 +76,15 @@ Container read_stream_into_container(std::basic_istream<CharT, Traits> &in,
 std::string get_file_content(std::string file_name)
 {
     std::ifstream fin(file_name, std::ios::binary);
-    std::string data = read_stream_into_container(fin);
-    fin.close();
-
-    return data;
+    try {
+        std::string data = read_stream_into_container(fin);
+        fin.close();
+        return data;
+    }
+    catch (std::ios_base::failure err) {
+        fin.close();
+        throw std::ios_base::failure {
+            file_name + std::string(": ") + err.what()
+        };
+    }
 }
