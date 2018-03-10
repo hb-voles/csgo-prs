@@ -16,7 +16,6 @@ Demofile::Demofile(std::string fn)
     }
 
     read_header();
-    print_game_details();
 
     DemoData *demo_blob = read_next_blob();
     while (demo_blob->cmd != DEMO_STOP) {
