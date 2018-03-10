@@ -53,3 +53,7 @@ stamp-h1
 *.dem
 *.dem.info
 data/match.txt
+
+# proto files
+*.pb.cc
+*.pb.h

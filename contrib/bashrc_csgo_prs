@@ -20,7 +20,7 @@ function reconfig()
         && rm -fR $CSGO_PRS_ARCH/ \
         && mkdir $CSGO_PRS_ARCH/ \
         && cd $CSGO_PRS_ARCH/ \
-        && ../configure --enable-silent-rules "$@"
+        && ../configure --enable-silent-rules --enable-relprotopath "$@"
 }
 
 # Set the list of warnings that you want to detect (and in the case of remake

@@ -165,6 +165,11 @@ void Demofile::print_game_details(void)
               << "Server name:       " << header.servername << std::endl
               << "Client name:       " << header.clientname << std::endl
               << "Map name:          " << header.mapname << std::endl
-              << "Game lenght (min): " << header.playback_time / 60
-              << std::endl;
+              << "Game lenght (min): " << header.playback_time / 60 << std::endl
+              << "------------------------" << std::endl
+              << "networkprotocol:   " << header.networkprotocol << std::endl
+              << "gamedirectory:     " << header.gamedirectory << std::endl
+              << "playback_ticks:    " << header.playback_ticks << std::endl
+              << "playback_frames:   " << header.playback_frames << std::endl
+              << "signonlength:      " << header.signonlength << std::endl;
 }
