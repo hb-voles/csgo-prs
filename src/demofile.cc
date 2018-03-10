@@ -3,7 +3,6 @@
 #include <iostream>
 
 #include "demofile.h"
-#include "utils.h"
 
 Demofile::Demofile(std::string fn)
     : filename(fn)

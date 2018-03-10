@@ -12,6 +12,5 @@ bin_PROGRAMS = \
 	csgoprs
 
 csgoprs_SOURCES = \
-	src/utils.cc	\
 	src/demofile.cc	\
 	src/main.cc
