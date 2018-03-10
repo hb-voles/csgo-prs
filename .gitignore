@@ -44,9 +44,12 @@ config.log
 config.status
 configure
 csgoprs
-*.dem
-*.dem.info
 nbproject/
 *.deps/
 *.dirstamp
 stamp-h1
+
+# data files
+*.dem
+*.dem.info
+data/match.txt
