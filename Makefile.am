@@ -10,6 +10,7 @@ endif
 
 if RELPROTOPATH
     PROTOPATH = ../src/protobuffs
+    AM_CPPFLAGS += -Isrc/
 else
     PROTOPATH = src/protobuffs
 endif
@@ -24,10 +25,10 @@ csgoprs_SOURCES = \
 	src/main.cc
 
 nodist_csgoprs_SOURCES = \
-	src/cstrike15_gcmessages.pb.cc src/cstrike15_gcmessages.pb.h \
-	src/cstrike15_usermessages_public.pb.cc src/cstrike15_usermessages_public.pb.h \
-	src/netmessages_public.pb.cc src/netmessages_public.pb.h \
-	src/steammessages.pb.cc src/steammessages.pb.h
+	src/protobuffs/cstrike15_gcmessages.pb.cc src/protobuffs/cstrike15_gcmessages.pb.h \
+	src/protobuffs/cstrike15_usermessages_public.pb.cc src/protobuffs/cstrike15_usermessages_public.pb.h \
+	src/protobuffs/netmessages_public.pb.cc src/protobuffs/netmessages_public.pb.h \
+	src/protobuffs/steammessages.pb.cc src/protobuffs/steammessages.pb.h
 
 csgoprs_LDFLAGS = \
 	$(PTHREAD_CFLAGS) \
@@ -38,8 +39,8 @@ csgoprs_LDADD = \
 	${PROTOBUF_LIBS}
 
 
-src/%.pb.cc src/%.pb.h: src/protobuffs/%.proto
-	$(PROTOC) --proto_path=${PROTOPATH} --cpp_out=src $^
+src/protobuffs/%.pb.cc src/protobuffs/%.pb.h: src/protobuffs/%.proto
+	$(PROTOC) --proto_path=${PROTOPATH} --cpp_out=${PROTOPATH} $^
 
 dist_noinst_DATA = \
 	src/protobuffs/cstrike15_gcmessages.proto \
@@ -48,21 +49,22 @@ dist_noinst_DATA = \
 	src/protobuffs/steammessages.proto
 
 BUILT_SOURCES = \
-	src/cstrike15_gcmessages.pb.cc \
-	src/cstrike15_gcmessages.pb.h \
-	src/cstrike15_usermessages_public.pb.cc \
-	src/cstrike15_usermessages_public.pb.h \
-	src/netmessages_public.pb.cc \
-	src/netmessages_public.pb.h \
-	src/steammessages.pb.cc \
-	src/steammessages.pb.h
+	src/protobuffs/cstrike15_gcmessages.pb.cc \
+	src/protobuffs/cstrike15_gcmessages.pb.h \
+	src/protobuffs/cstrike15_usermessages_public.pb.cc \
+	src/protobuffs/cstrike15_usermessages_public.pb.h \
+	src/protobuffs/netmessages_public.pb.cc \
+	src/protobuffs/netmessages_public.pb.h \
+	src/protobuffs/steammessages.pb.cc \
+	src/protobuffs/steammessages.pb.h
 
 MOSTLYCLEANFILES = \
-	src/cstrike15_gcmessages.pb.cc \
-	src/cstrike15_gcmessages.pb.h \
-	src/cstrike15_usermessages_public.pb.cc \
-	src/cstrike15_usermessages_public.pb.h \
-	src/netmessages_public.pb.cc \
-	src/netmessages_public.pb.h \
-	src/steammessages.pb.cc \
-	src/steammessages.pb.h
+	${PROTOPATH}/cstrike15_gcmessages.pb.cc \
+	${PROTOPATH}/cstrike15_gcmessages.pb.h \
+	${PROTOPATH}/cstrike15_usermessages_public.pb.cc \
+	${PROTOPATH}/cstrike15_usermessages_public.pb.h \
+	${PROTOPATH}/netmessages_public.pb.cc \
+	${PROTOPATH}/netmessages_public.pb.h \
+	${PROTOPATH}/steammessages.pb.cc \
+	${PROTOPATH}/steammessages.pb.h
+

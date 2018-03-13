@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "demofile.h"
+#include "protobuffs/netmessages_public.pb.h"
 
 Demofile::Demofile(std::string fn)
     : filename(fn)
