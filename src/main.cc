@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 
+#include "protobuffs/netmessages_public.pb.h"
+
 #include "demofile.h"
 
 const std::string HELP_STR = "Usage:\n"
@@ -15,5 +17,7 @@ int main(int argc, char *argv[])
 
     Demofile df(argv[1]);
     df.print_game_details();
+
+    google::protobuf::ShutdownProtobufLibrary();
     return 0;
 }

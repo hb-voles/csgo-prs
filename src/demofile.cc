@@ -23,13 +23,13 @@ Demofile::Demofile(std::string fn)
         std::cerr << "CMD TYPE: " << (int32_t)demo_blob->cmd << std::endl;
         std::cerr << "CMD TICK: " << demo_blob->tick << std::endl;
 
-        delete demo_blob->blob;
+        delete[] demo_blob->blob;
         delete demo_blob;
 
         demo_blob = read_next_blob();
     }
 
-    delete demo_blob->blob;
+    delete[] demo_blob->blob;
     delete demo_blob;
 }
 
